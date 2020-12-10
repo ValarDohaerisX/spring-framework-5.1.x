@@ -1,25 +1,22 @@
 package pojo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
+import org.springframework.core.type.Scope;
 import org.springframework.stereotype.Component;
 
 /**
  * @author lzx
  * @company 赞同科技
- * @date 2020/12/09 15:44
+ * @date 2020/12/09 17:54
  * @Describetion
  */
-
 @Component
-public class User {
-	@Value("user-1")
+@Scope("prototype")
+public class Cat {
+	@Value("cat-1")
 	private String name;
-	@Value("24")
+	@Value("3")
 	private String age;
-	@Autowired
-	Cat cat;
 
 	public String getName() {
 		return name;
@@ -37,20 +34,11 @@ public class User {
 		this.age = age;
 	}
 
-	public Cat getCat() {
-		return cat;
-	}
-
-	public void setCat(Cat cat) {
-		this.cat = cat;
-	}
-
 	@Override
 	public String toString() {
-		return "User{" +
+		return "Cat{" +
 				"name='" + name + '\'' +
 				", age='" + age + '\'' +
-				", cat=" + cat +
 				'}';
 	}
 }
