@@ -393,7 +393,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			Document doc = doLoadDocument(inputSource, resource);
 			int count = registerBeanDefinitions(doc, resource);
 			if (logger.isDebugEnabled()) {
-				logger.debug("Loaded " + count + " bean definitions from " + resource);
+				logger.debug("已加载 " + count + " 个bean definitions 在 " + resource);
 			}
 			return count;
 		}

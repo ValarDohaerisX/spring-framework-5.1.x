@@ -1,7 +1,10 @@
 package test;
 
+import context.MyClassPathXmlApplicationContext;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 import pojo.Cat;
 import pojo.User;
 
@@ -14,12 +17,18 @@ import pojo.User;
 
 public class ApplicationContextTest {
 	public static void main(String[] args) {
-//		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext("pojo");
-		User user = ac.getBean(User.class);
-		Cat cat1 = ac.getBean(Cat.class);
-		Cat cat2 =  ac.getBean(Cat.class);
+		MyClassPathXmlApplicationContext ac = new MyClassPathXmlApplicationContext("applicationContext.xml");
+//		AnnotationConfigApplicationContext ac1 = new AnnotationConfigApplicationContext("pojo");
+//		XmlBeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("applicationContext.xml"));
+
+
+		User user = (User) ac.getBean("user");
+//		User user2 = (User) beanFactory.getBean("user");
+
+//		Cat cat1 = ac1.getBean(Cat.class);
+//		Cat cat2 =  ac1.getBean(Cat.class);
 		System.out.println(user);
-		System.out.println(cat1 == cat2);
+//		System.out.println(user2);
+//		System.out.println(cat1 == cat2);
 	}
 }

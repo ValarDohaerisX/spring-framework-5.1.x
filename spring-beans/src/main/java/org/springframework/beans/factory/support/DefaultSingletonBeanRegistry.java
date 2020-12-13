@@ -218,11 +218,11 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 			if (singletonObject == null) {
 				if (this.singletonsCurrentlyInDestruction) {
 					throw new BeanCreationNotAllowedException(beanName,
-							"Singleton bean creation not allowed while singletons of this factory are in destruction " +
-							"(Do not request a bean from a BeanFactory in a destroy method implementation!)");
+							"在工厂的单例销毁时不允许创建单例bean " +
+							"(不要在销毁方法实现中向BeanFactory请求Bean!)");
 				}
 				if (logger.isDebugEnabled()) {
-					logger.debug("Creating shared instance of singleton bean '" + beanName + "'");
+					logger.debug("创建单例bean的共享实例（Creating shared instance of singleton bean） '" + beanName + "'");
 				}
 				beforeSingletonCreation(beanName);
 				boolean newSingleton = false;

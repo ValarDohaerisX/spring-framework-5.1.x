@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
  * @date 2020/12/09 17:54
  * @Describetion
  */
-@Component
-@Scope("prototype")
+//@Component
+//@Scope("prototype")
 public class Cat {
-	@Value("cat-1")
+//	@Value("cat-1")
 	private String name;
-	@Value("3")
+//	@Value("3")
 	private String age;
 
 	public String getName() {

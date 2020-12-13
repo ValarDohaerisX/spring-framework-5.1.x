@@ -11,5 +11,11 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd 
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 <!--	使用注解操作Bean-->
-	<context:annotation-config/>
+<!--	<context:annotation-config/>-->
+
+	<bean id="user" class="pojo.User" scope="prototype">
+		<property name="name" value="user-02"/>
+		<property name="age" value="18"/>
+		<property name="dataValue" value="2018-06-30"/>
+	</bean>
 </beans>

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
  * @author lzx
  * @company 赞同科技
@@ -12,13 +14,15 @@ import org.springframework.stereotype.Component;
  * @Describetion
  */
 
-@Component
+//@Component
 public class User {
 	@Value("user-1")
 	private String name;
 	@Value("24")
 	private String age;
-	@Autowired
+
+	private Date dataValue;
+//	@Autowired
 	Cat cat;
 
 	public String getName() {
@@ -45,11 +49,20 @@ public class User {
 		this.cat = cat;
 	}
 
+	public Date getDataValue() {
+		return dataValue;
+	}
+
+	public void setDataValue(Date dataValue) {
+		this.dataValue = dataValue;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" +
 				"name='" + name + '\'' +
 				", age='" + age + '\'' +
+				", dataValue=" + dataValue +
 				", cat=" + cat +
 				'}';
 	}

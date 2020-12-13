@@ -40,7 +40,7 @@ public class MissingRequiredPropertiesException extends IllegalStateException {
 
 	@Override
 	public String getMessage() {
-		return "The following properties were declared as required but could not be resolved: " +
+		return "以下属性已声明为必需属性，但无法解析: " +
 				getMissingRequiredProperties();
 	}
 

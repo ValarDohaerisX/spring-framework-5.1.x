@@ -124,14 +124,19 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 			closeBeanFactory();
 		}
 		try {
+			//创建DefualtListableBeanFactory
 			DefaultListableBeanFactory beanFactory = createBeanFactory();
+			//为了序列化指定id，如果需要的话，让这个BeanFactory从id反序列化到BeanFactory对象
 			beanFactory.setSerializationId(getId());
+			//定制(自定义)beanFactory相关属性，包括是否允许覆盖同名称的不同定义的对象以及
+			//设置@Autowired和@Qualifier注解解析器QualifierAnnotationAutowiredCandidateResolver
 			customizeBeanFactory(beanFactory);
+			//加载/初始化DocumentReader，并进行XML文件读取及解析
 			loadBeanDefinitions(beanFactory);
 			this.beanFactory = beanFactory;
 		}
 		catch (IOException ex) {
-			throw new ApplicationContextException("I/O error parsing bean definition source for " + getDisplayName(), ex);
+			throw new ApplicationContextException("I/O错误解析bean的定义源(I/O error parsing bean definition source for) " + getDisplayName(), ex);
 		}
 	}
 
@@ -212,9 +217,13 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 * @see DefaultListableBeanFactory#setAllowEagerClassLoading
 	 */
 	protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
+		//如果属性allowBeanDefinitionOverriding不为空，设置给beanFactory对象相应属性，
+		//此属性含义：是否允许覆盖同名称的不同定义的对象
 		if (this.allowBeanDefinitionOverriding != null) {
 			beanFactory.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
 		}
+		//如果属性allowCircularReferences不为空，设置给beanFactory对象相应属性，
+		//此属性含义：是否允许bean之间循环依赖
 		if (this.allowCircularReferences != null) {
 			beanFactory.setAllowCircularReferences(this.allowCircularReferences);
 		}

@@ -79,7 +79,7 @@ public class PropertySourcesPropertyResolver extends AbstractPropertyResolver {
 		if (this.propertySources != null) {
 			for (PropertySource<?> propertySource : this.propertySources) {
 				if (logger.isTraceEnabled()) {
-					logger.trace("Searching for key '" + key + "' in PropertySource '" +
+					logger.trace("正在寻找key为:'" + key + "' in 属性源（PropertySource） '" +
 							propertySource.getName() + "'");
 				}
 				Object value = propertySource.getProperty(key);
@@ -112,8 +112,8 @@ public class PropertySourcesPropertyResolver extends AbstractPropertyResolver {
 	 */
 	protected void logKeyFound(String key, PropertySource<?> propertySource, Object value) {
 		if (logger.isDebugEnabled()) {
-			logger.debug("Found key '" + key + "' in PropertySource '" + propertySource.getName() +
-					"' with value of type " + value.getClass().getSimpleName());
+			logger.debug("已发现关键字key '" + key + "' 在属性源 '" + propertySource.getName() +
+					"' ，该值类型为 [" + value.getClass().getSimpleName()+"] ,值为 '" + value.toString() + "'");
 		}
 	}
 
