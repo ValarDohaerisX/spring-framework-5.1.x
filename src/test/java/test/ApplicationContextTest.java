@@ -1,11 +1,6 @@
 package test;
 
 import context.MyClassPathXmlApplicationContext;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import pojo.Cat;
 import pojo.User;
 
 /**

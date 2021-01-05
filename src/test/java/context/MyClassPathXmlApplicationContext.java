@@ -23,7 +23,7 @@ public class MyClassPathXmlApplicationContext extends ClassPathXmlApplicationCon
 	@Override
 	protected void initPropertySources() {
 		//"CLASSPATH",
-		String[] systemProperties = new String[]{"CLASSPATH","JAVA_HOME"};
+		String[] systemProperties = new String[]{"CLASSPATH","JAVA_HOME","LOVE"};
 		getEnvironment().setRequiredProperties(systemProperties);
 	}
 

@@ -597,7 +597,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			}
 			else {
 				throw new BeanCreationException(
-						mbd.getResourceDescription(), beanName, "Initialization of bean failed", ex);
+						mbd.getResourceDescription(), beanName, "Bean的初始化失败", ex);
 			}
 		}
 

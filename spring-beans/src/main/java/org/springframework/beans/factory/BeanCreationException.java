@@ -95,8 +95,8 @@ public class BeanCreationException extends FatalBeanException {
 	 * @param msg the detail message
 	 */
 	public BeanCreationException(@Nullable String resourceDescription, @Nullable String beanName, String msg) {
-		super("Error creating bean with name '" + beanName + "'" +
-				(resourceDescription != null ? " defined in " + resourceDescription : "") + ": " + msg);
+		super("创建Bean错误，名为： '" + beanName + "'" +
+				(resourceDescription != null ? " 在 " + resourceDescription : "") + ": " + msg);
 		this.resourceDescription = resourceDescription;
 		this.beanName = beanName;
 		this.relatedCauses = null;

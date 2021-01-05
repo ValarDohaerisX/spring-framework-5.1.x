@@ -13,9 +13,23 @@
 <!--	使用注解操作Bean-->
 <!--	<context:annotation-config/>-->
 
-	<bean id="user" class="pojo.User" scope="prototype">
+	<bean id="user" class="pojo.User">
 		<property name="name" value="user-02"/>
 		<property name="age" value="18"/>
 		<property name="dataValue" value="2018-06-30"/>
+		<property name="cat" ref="cat" />
+	</bean>
+
+	<bean id="cat" class="pojo.Cat">
+		<property name="name" value="cat-01"/>
+		<property name="age" value="24"/>
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
+		<property name="propertyEditorRegistrars">
+			<list>
+				<bean class="register.DatePropertyEditorRegister"/>
+			</list>
+		</property>
 	</bean>
 </beans>
